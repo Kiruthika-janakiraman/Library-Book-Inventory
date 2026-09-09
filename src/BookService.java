@@ -4,6 +4,11 @@ public class BookService {
 
     private final ArrayList<Book> books = new ArrayList<>();
 
+    // Added for testability
+    public java.util.List<Book> getBooks() {
+        return books;
+    }
+
     // Create - Add a new book
     public void addBook(Book book) {
         books.add(book);

@@ -13,7 +13,8 @@ A robust Java command-line application to efficiently manage a library's book in
 - `src/Book.java`: The core model representing a book.
 - `src/BookService.java`: The service layer containing the business logic (CRUD operations).
 - `src/Main.java`: The entry point and interactive user interface loop.
-- `src/TestBookService.java`: Automated test script to verify application logic.
+- `src/BookServiceTest.java`: Comprehensive JUnit 5 automated tests.
+- `lib/`: Contains the standalone JUnit 5 JAR file.
 
 ## Prerequisites
 - Java Development Kit (JDK) 8 or higher.
@@ -26,8 +27,15 @@ java -cp src Main
 ```
 
 ## How to Test
-To verify the core functionality via the automated test script:
+The project uses JUnit 5 for testing. The standalone test runner is located in the `lib` folder.
+To compile and run the test suite:
 ```bash
-javac src/*.java
-java -cp src TestBookService
+# Navigate to src directory
+cd src
+
+# Compile the tests
+javac -cp ".;..\lib\junit-platform-console-standalone-1.10.0.jar" Book.java BookService.java BookServiceTest.java
+
+# Run the tests
+java -jar ..\lib\junit-platform-console-standalone-1.10.0.jar -cp . --scan-class-path
 ```
